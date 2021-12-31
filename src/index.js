@@ -27,6 +27,7 @@ corsOptions.options = function (req, res, next) {
 /**
  * Import models(It will be created database structure if it is not Production environment).
  */
+// { alter: true }
 models.sequelize
     .authenticate()
     .then(() => {

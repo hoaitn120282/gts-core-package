@@ -10,7 +10,7 @@ const dbConfig = {
     url: envConfig.NODE_APP_DB_URL,
     logging: envConfig.NODE_ENV === 'production' ? false : console.log,
     freezeTableName: true,
-    operatorsAliases: false,
+    operatorsAliases: true,
     pool: {
         max: 5,
         min: 0,
