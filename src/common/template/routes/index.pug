@@ -1,0 +1,72 @@
+import express from "express";
+import {{moduleName}}Controller from "src/modules/v1/{{moduleName}}/controllers/{{moduleName}}";
+const router = express.Router();
+
+/**
+ * @apiVersion 1.0.0
+ * @api {get} /{{moduleName}} Display the list of {{moduleName}}
+ * @apiName {{moduleName}} list
+ *
+ * @apiSuccess {Object} Items the list of {{moduleName}} information.
+ */
+
+router.get("/", {{moduleName}}Controller.index);
+
+/**
+ * @apiVersion 1.0.0
+ * @api {get} /{{moduleName}}/:id Show {{moduleName}} information
+ * @apiName Display {{moduleName}} information via ID
+ * @apiGroup {{moduleName}}
+ *
+ *
+ * @apiSuccess {Object} {{moduleName}} information.
+ */
+router.get("/:id", {{moduleName}}Controller.show);
+
+/**
+ * @apiVersion 1.0.0
+ * @api {post} /{{moduleName}} Create a new {{moduleName}}
+ * @apiName {{moduleName}} creation
+ * @apiGroup {{moduleName}}
+ *
+ * @apiSuccess {Object} Items - {{moduleName}} information: username, email, status,...
+ * @apiSuccess {String} Message.
+ * @apiSuccess {String} Status.
+ */
+router.post("/", {{moduleName}}Controller.create);
+
+/**
+ * @apiVersion 1.0.0
+ * @api {put} /{{moduleName}}/:id Update a {{moduleName}}
+ * @apiName {{moduleName}} updation
+ * @apiGroup {{moduleName}}
+ *
+ * @apiSuccess {Object} Items.
+ * @apiSuccess {String} Message.
+ * @apiSuccess {String} Status.
+ */
+router.put("/:id", {{moduleName}}Controller.update);
+
+/**
+ * @apiVersion 1.0.0
+ * @api {delete} /{{moduleName}}/:id Delete a {{moduleName}}
+ * @apiName {{moduleName}} Deletion
+ * @apiGroup {{moduleName}}
+ *
+ * @apiSuccess {String} Message.
+ * @apiSuccess {String} Status.
+ */
+router.delete("/:id", {{moduleName}}Controller.delete);
+
+/**
+ * @apiVersion 1.0.0
+ * @api {delete} /{{moduleName}}/undelete/:id Delete a {{moduleName}}
+ * @apiName {{moduleName}} Deletion
+ * @apiGroup {{moduleName}}
+ *
+ * @apiSuccess {String} Message.
+ * @apiSuccess {String} Status.
+ */
+router.delete("/undelete/:id", {{moduleName}}Controller.restore);
+
+export default router;
