@@ -49,7 +49,7 @@ helper.parseVariableToString = function (myStr) {
     let i = 0;
 
     return myStr.replace(/%s/g, function () {
-        return args[i++];
+        return args[ i++ ];
     });
 };
 
@@ -141,7 +141,7 @@ helper.camelize = function (str) {
  */
 helper.formatCode = data => {
     const report = cli.executeOnText(data);
-    return report.results[0].output || data;
+    return report.results[ 0 ].output || data;
 };
 
 export default helper;

@@ -1,4 +1,4 @@
-import Sequelize, { Op } from "sequelize";
+import Sequelize from "sequelize";
 import config from "src/config/database";
 
 const db = {};

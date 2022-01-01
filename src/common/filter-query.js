@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: !0 });
-var _Initialize = require("src/database/Initialize"),
+const _Initialize = require("src/database/Initialize"),
     _Initialize2 = _interopRequireDefault(_Initialize);
 function _interopRequireDefault(a) {
     return a && a.__esModule ? a : { default: a };
 }
 exports.default = function (a) {
-    var b = {};
-    var searchObj = {};
+    const b = {};
+    const searchObj = {};
     return (
         // Paginate option
         a.per_page && (b.limit = parseInt(a.per_page)),
@@ -19,18 +19,18 @@ exports.default = function (a) {
         a.sort &&
         ((a.sort = JSON.parse(a.sort)),
             Object.keys(a.sort).forEach(function (c) {
-                console.log(a.sort[0].field);
+                console.log(a.sort[ 0 ].field);
                 var d = [];
-                if (-1 !== a.sort[c].field.indexOf(".")) {
-                    var e = a.sort[c].field.split("."),
-                        f = _Initialize2.default[e[0]];
-                    (b.include = [{ model: f }]),
+                if (-1 !== a.sort[ c ].field.indexOf(".")) {
+                    var e = a.sort[ c ].field.split("."),
+                        f = _Initialize2.default[ e[ 0 ] ];
+                    (b.include = [ { model: f } ]),
                         (d = [
                             { model: f },
-                            e[1],
-                            a.sort[c].direction || "ASC"
+                            e[ 1 ],
+                            a.sort[ c ].direction || "ASC"
                         ]);
-                } else d = [a.sort[c].field, a.sort[c].direction || "ASC"];
+                } else d = [ a.sort[ c ].field, a.sort[ c ].direction || "ASC" ];
                 b.order.push(d);
             })),
         // Filter option
@@ -39,10 +39,10 @@ exports.default = function (a) {
             if (-1 !== c.indexOf(".")) {
                 var d = c.split("."),
                     e = [];
-                e[d[1]] = a.filter[c];
-                var f = _Initialize2.default[d[0]];
-                (b.include = [{ model: f, where: Object.assign({}, e) }]),
-                    delete a.filter[c];
+                e[ d[ 1 ] ] = a.filter[ c ];
+                var f = _Initialize2.default[ d[ 0 ] ];
+                (b.include = [ { model: f, where: Object.assign({}, e) } ]),
+                    delete a.filter[ c ];
             }
         }),
         (b.where = Object.assign({}, a.filter)),
@@ -52,13 +52,13 @@ exports.default = function (a) {
             if (-1 !== c.indexOf(".")) {
                 var d = c.split("."),
                     e = [];
-                e[d[1]] = { $like: a.search[c] };
-                var f = _Initialize2.default[d[0]];
-                (b.include = [{ model: f, where: Object.assign({}, e) }]);
+                e[ d[ 1 ] ] = { $like: a.search[ c ] };
+                var f = _Initialize2.default[ d[ 0 ] ];
+                (b.include = [ { model: f, where: Object.assign({}, e) } ]);
             } else {
-                searchObj[c] = { $like: `%${a.search[c]}%` };
+                searchObj[ c ] = { $like: `%${a.search[ c ]}%` };
             }
-            delete a.search[c];
+            delete a.search[ c ];
         }),
         (b.where = Object.assign({}, searchObj)),
         // Timestamps option

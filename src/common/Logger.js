@@ -1,6 +1,6 @@
-import logger from 'winston';
+import logger from "winston";
 
-import config from 'src/config/config.json';
+import config from "src/config/config.json";
 class Logger {
     info(...data) {
         if (config.debug) logger.info(...data);

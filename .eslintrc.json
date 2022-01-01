@@ -14,7 +14,10 @@
         "sourceType": "module",
         "allowImportExportEverywhere": true
     },
-    "extends": ["node-app", "eslint:recommended"],
+    "extends": [
+        "node-app",
+        "eslint:recommended"
+    ],
     "rules": {
         "no-var": "warn",
         "prefer-const": "warn",
@@ -29,8 +32,14 @@
                 "VariableDeclarator": 2
             }
         ],
-        "linebreak-style": ["off", "unix"],
-        "semi": ["warn", "always"],
+        "linebreak-style": [
+            "off",
+            "unix"
+        ],
+        "semi": [
+            "warn",
+            "always"
+        ],
         "no-unused-vars": [
             "warn",
             {

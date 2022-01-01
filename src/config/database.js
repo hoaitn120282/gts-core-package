@@ -8,7 +8,7 @@ const dbConfig = {
     host: envConfig.NODE_APP_DB_HOST,
     dialect: envConfig.NODE_APP_DB_DIALECT,
     url: envConfig.NODE_APP_DB_URL,
-    logging: envConfig.NODE_ENV === 'production' ? false : console.log,
+    logging: envConfig.NODE_ENV === "production" ? false : console.log,
     freezeTableName: true,
     operatorsAliases: true,
     pool: {
